@@ -1,5 +1,8 @@
 # The Odin Programming Language
 
+~5 char per word -> 500 word/page
+~1500 char/page
+
 ## Preface
 
 -   The Origins of Odin
@@ -23,13 +26,16 @@
 -   Package Declaration / File Structure
 -   Import Statements (?)
 -   Uniform Syntax for Assignment/Declaration (:: and :=) (fancy #define for ::)
--   Globals & Constants
 -   Procedures
     -   Multiple Return Values
 -   Scopes
 -   Naming Collisions
 
 ## Chapter: Operators
+
+## Chapter: Printing and IO
+
+## Chapter: Primer on Transitioning Managed to Unmanaged Languages
 
 ## Chapter: Control Flow
 
@@ -40,6 +46,8 @@
 -   Labels
 
 ## Chapter: Basic Types
+
+    NOTE: builtin types are lowercase
 
 -   Machine Size, endianness, portability
 -   Explicit Type Conversions
