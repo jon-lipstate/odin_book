@@ -4,11 +4,27 @@ TODO
 
 ### Origin Story
 
-TODO
+a new years resolution was to make a new project in pure c to find what wanted in a language. cpp is the best of the worst. scripting langs not as good as c. c std lib is dreadful. if using c, must meta-program it. inspired by sean barrett on tools dev. started with single file header lib gb.h. had allocators, concurrency, platform layers, opengl and so on. on a night of drinking and watching a stream of sean mcgrath, got a wild hare to make a language. it was not a good impl, bill was quite toasted after all, but the seed was planted. Later he investigated and ruled out numerous languages, and returned to the idea of making his own.
 
 ### Design Philosophy
 
-TODO
+pragmatic design - solve actual problems
+doesnt restrain the programmer (if want to do unsafe, let them)
+high performance
+simplicity & consistency
+express in modern way, eg matlab vector adds
+-simd, concurrency
+sanity: fast compile, less tooling needs (no pkg mgr etc), better refactoring
+metaprogramming capability
+
+WHY NOT:
+errors are just values like go. exceptions are dreadful.
+raii: odd concept, linking data to create delete of it -> defer/scope_exit instead
+oop: let data be data, no desire to orient around anything, the goal is solely to solve the problem
+mem-alloc: gc is never needed (95% of all allocs are lifetime and size, fully deterministic), (3-4% know lifetime but not size) (know size but not lifetime, solve by RC) (dont know size or lifetime, needs GC, should ever get here)
+
+llvm byte code from start
+first demo Aug 2016
 
 ### Book Organization
 
@@ -44,7 +60,29 @@ TODO
 
 ### Example Snippets
 
-TODO: talk about omit proc wrappers and imports, when using core imports, they are not aliased. show how to build up compilable examples. for berevity
+Many snippets are provided in the book; if each snippet were able to be entirely copy-pasted into running examples, there would be considerable repeated boilerplate. When deemed useful, full, runnable examples are provided. However in most cases some omissions will occur. These are not setting a package declaration, not showing imports (though names will not be aliased, so you can add the import easily) and showing snippets of code outside of procedure bodies. These omissions are done in the name of berevity and clarity. After reading the Chapter on Program Structure, you should be able to trivially modify any snippet into executable code.
+
+```odin
+package fully_specified_example
+
+import "core:fmt"
+import "core:os"
+
+main :: proc() {
+    input_args: []string = os.args // arguments passed to the application
+    for arg in input_args {
+        fmt.println(arg)
+    }
+}
+```
+
+A shortened example snippet might be as follows, with perhaps the goal being to show examples of capturing application args, `for` loops, or iteration of slices using the `in` syntax.
+
+```odin
+for arg in os.args {
+    fmt.println(arg)
+}
+```
 
 ### Acknowledgements
 

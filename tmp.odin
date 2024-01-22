@@ -3,11 +3,8 @@ import "core:fmt"
 
 
 main :: proc() {
-	a := u8(0b_0101_0101)
-	fmt.printf("%b\n", ~a) // 0b_1010_1010
-	c := i8(0b_0101_0101) // 85 in base10
-	d := transmute(u8)~c // we want to read the value as a u8 to understand its raw values
-	fmt.printf("%b\n", d) // 0b_1010_1010 // -86 in base10
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	b:=a[1:3:6]
 }
 
 

@@ -1,6 +1,6 @@
 ## Operators
 
-Odins operator selection is common to most languages except in a few places. THere is now exponent operator (`**` or `^` in other languages). The `pow` procedure in `core:math` is instead used. Odin reserves the caret `^` for use with pointers instead of `*` as C uses. C uses `^` for XOR, in Odin this is `~`.
+Odins operator selection is common to most languages except in a few places. There is now exponent operator (`**` or `^` in other languages). The `pow` procedure in `core:math` is instead used. Odin reserves the caret `^` for use with pointers instead of `*` as C uses. C uses `^` for XOR, in Odin this is `~`.
 
 Basic arithmatic operations work on Numeric Types, which include Integers, Floats (including complex/quaternion), Enums.
 
@@ -74,3 +74,5 @@ Binary Bitwise Operators:
 | &~     | And Not     | Integers, Enums          |
 | <<     | Shift Left  | unsigned Integers, Enums |
 | >>     | Shift Right | unsigned Integers, Enums |
+
+TODO: show bits library?

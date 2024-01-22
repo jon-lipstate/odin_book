@@ -34,13 +34,15 @@ import "../shared"
 foo :: shared.foo   // <- Alias foo across the current package to not have to type shared.foo
 ```
 
+TODO: more about flat organization is just not an issue
+
 Naming collisions are often brought up as a case against flat structures, however in practice occurances are rare, and more often a naming collision is with a _builtin_ procedure than user-defined ones. Handling Naming collisons is discussed more in Section XX.
 
 A caution for those accustomed to object oriented languages: Odin's design makes code organization and taxonomy formation seperate concepts where in many OOP languages they are merged. It is strongly discouraged to try to apply taxonomies to your codebase in Odin. Instead you are encouraged to group like functionalty by file in the same directory. Odin does not allow cyclic imports, making unneccesary code-splitting even more trouble than it would be in other languages.
 
 #### Requirements:
 
--   \*It must be on the first line of the file, except when build tags are present.
+-   \*Must be on the first line of the file, except when build tags are present.
 -   A package may be named any valid Identifier.
 -   All `.odin` files within a directory must share the same package name.
 -   All imports must be acyclic
@@ -88,6 +90,7 @@ A declaration may have the starting colon followed by a type and nothing else, i
 
 ##### Attbributes
 
+TODO
 @(private)
 @(require)
 @(export)
@@ -98,6 +101,8 @@ A declaration may have the starting colon followed by a type and nothing else, i
 foo := 0x2A // declare & assign
 foo = 42    // re-assign
 ```
+
+TODO: MULTI_ASSIGN : x,y: f64 = 3, 11
 
 A newly, or previously declared type may be assigned using the equals sign. Using `:=` declares and then assigns a _mutable_ variable, recall that it is two operations, 1. Declare a variable (and optionally its type), 2. Assign the variable a concrete value. Solely using equals on an existing variable re-assigns it.
 
@@ -216,7 +221,15 @@ main :: proc() {
 }
 ```
 
-In Odin the application's entry point is the procedure `main`. Note that in Odin, the main procedure does not accept or return arguments, atypical to most other languages. This is done to unify the function signatures across platforms, each platform-specific entry-point (below) will have the correct signature for that platform, and the data is placed into a global variable in the `core:os` package.
+In Odin the application's entry point is the procedure `main`. Note that in Odin, the main procedure does not accept or return arguments, atypical to most other languages. This is done to unify the function signatures across platforms, each platform-specific entry-point (below) will have the correct signature for that platform, and the data is placed into a global variable in the `core:os` package. Access to the program's input arguments or specifying an exit-code is done as follows:
+
+```odin
+import "core:os"
+main :: proc() {
+	args:[]string = os.args // argv converted to a slice of string
+	os.exit(-1) // OS-Specific exit (e.g. ExitProcess on Windows)
+}
+```
 
 Note that prior to your main procedure executing, the Odin runtime starts up. The runtime's startup code can be found in `core:runtime/entry_OS.odin` where `os` is the target-OS. From the `entry_unix.odin` file, we can see the expected `main` signature you'd expect of the OS, it takes in a list of arguments, and returns an integer. The context system is initialized, the runtime is started and finally, the user-main is called at `intrinsics.__entry_point()`.
 
@@ -232,16 +245,18 @@ main :: proc "c" (argc: i32, argv: [^]cstring) -> i32 {
 }
 ```
 
-### Naming Collisions
+For cases where an entrypoint is not needed or desired such as static/dynamic libraries, see Chapter X.
 
-The most common collision you will find is with the builtin procedures. They are by default always available whether you imported them or not, and to be idiomatic with the language you may opt to use similar, ergo colliding naming. When this occurs with the builtins, you can either rename your values to be something else, or you can explicitly call a builtin.
+### Naming Collisions TODO: MOVE THIS
+
+The most common collision you will find is with the builtin procedures. They are by default always available whether you imported them or not, and to be idiomatic with the language you may opt to use similar naming, which tends to collide. When this occurs with the builtins, you can either rename your values to be something else, or you can explicitly call a builtin.
 
 ```odin
-import "core:builtin
-max::proc(){...}
-main::proc(){
-    m:=max(3,4) // this is ambiguous but typically resolves to local declarition
-    m:=builtin.max(3,4) // ambiguity resolved
+import "core:builtin" // explicitly import the builtin package
+max :: proc(a, b: int) {...} // Collides with `max` from builtins
+main :: proc() {
+    m := max(3,4) // Attempts to resolve to local declaration
+    n := builtin.max(3,4) // explicit call to the builtin
 }
 ```
 
