@@ -6,13 +6,16 @@ If someone were to provide extensive editing I will look at providing the first 
 
 If somenone wants to put in substantial authoring efforts, i am happy to take on a coauthor. The caveat here is you need to either do extensive research to make sure we cover every base and/or write something like 40-50% of the book.
 
+~5 char per word -> 500 word/page
+~1500 char/page
+
 ## Outline
 
--   [ ] Preface
-    -   [ ] Origins
-    -   [ ] Philosophy
+-   [~] Preface
+    -   [x] Origins
+    -   [x] Philosophy
     -   [x] Target Audience
-    -   [ ] Book Organization
+    -   [x] Book Organization
     -   [ ] Acknowledgements
 
 ## Part 1: The Basics
@@ -25,16 +28,14 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
     -   [ ] Basic Compiler Commands
     -   [ ] Hellope
     -   [ ] Basic Syntax Overview
+        -   [ ] Left To Right
     -   [ ] Style
 -   [~] Program Structure
 
     -   [x] Attr, Tag, Directive Primer
     -   [x] Package Declaration
     -   [x] Import Statements
-
         -   [ ] Collections (Use & Making of)
-
-    -   [ ] (TODO: ADD LTR READING)
     -   [x] Declarations Syntax
     -   [x] Assignments **TODO ADD \_ (discard)**
     -   [~] Procedures
@@ -81,6 +82,7 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
 
         -   [ ] Backing Types
         -   [ ] Namespaced
+        -   [ ] Enumerated Arrays
         -   [ ] Bitmasking (?)
         -   [ ] Uses
         -   [ ] attrs ?
@@ -93,35 +95,36 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
         -   [ ] Accessing (esp ptr)
         -   [ ] Comparison to Rust Enum
 
-    -   [ ] Pointers
+-   [ ] Pointers
 
-        -   [ ] Basics
-        -   [ ] Multipointers
-        -   [ ] C-Style Pointer Arithmetic
-        -   [ ] ?
+    -   [ ] Virtual Memory (? maybe in memory chapter)
+    -   [ ] Basics
+    -   [ ] Multipointers
+    -   [ ] C-Style Pointer Arithmetic
+    -   [ ] ?
 
-    -   [ ] Slices, dynamic & map
+-   [ ] Slices, dynamic & map
 
-        -   [ ] ?
+    -   [ ] ?
 
-    -   [ ] Operators (arithmatic, bitwise, ternary)
-        -   [x] Arithmetic, Bitwise
-        -   [x] Matrix
-    -   [ ] Control Flow
+-   [ ] Operators (arithmatic, bitwise, ternary)
+    -   [x] Arithmetic, Bitwise
+    -   [x] Matrix
+-   [ ] Control Flow
 
-        -   [ ] if-else +?:
-        -   [ ] switch +fallthrough,break
-        -   [ ] for +continue,break
-        -   [ ] labels +break-nested
-        -   [ ] defer +scopes, +if
+    -   [ ] if-else +?:
+    -   [ ] switch +fallthrough,break
+    -   [ ] for +continue,break
+    -   [ ] labels +break-nested
+    -   [ ] defer +scopes, +if
 
-    -   [ ] Procedures
-        -   [ ] Inputs Signature
-            -   [ ] Immutable Args
-            -   [ ] Auto by-ptr upgrades @>16b
-        -   [ ] Outputs Signature
-        -   [ ] First Class (can pass as args, can use nameless)
-        -   [ ] Body
+-   [ ] Procedures
+    -   [ ] Inputs Signature
+        -   [ ] Immutable Args
+        -   [ ] Auto by-ptr upgrades @>16b
+    -   [ ] Outputs Signature
+    -   [ ] First Class (can pass as args, can use nameless)
+    -   [ ] Body
 
 ## Part 2: Memory
 
@@ -165,6 +168,7 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
 -   [ ] Printing & IO
     -   [ ] stdin/out/err
     -   [ ] formatters
+    -   [ ] pros/cons of RTTI based string printing
     -   [ ] use-cases (aprintf, tprintf, sb etc)
 -   [ ] Builtins, Intrinsics, Runtime Packages
     -   [ ] Builtins
