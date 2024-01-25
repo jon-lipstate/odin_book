@@ -94,6 +94,6 @@ Import statements are visible to the file-scope.
 
 ### Main
 
-The main procedure is the application entrypoint. The main procedure does not accept arguments or return a value. We'll discuss how to do both in **Chapter X**. There can only be one entrypoint in a package. The following annotated program shows a basic hello program, but again using relative pathing to reinforce the idea of directories and symlinks. The `fmt` import will always be `import "core:fmt"` in practice.
+The main procedure is the application entrypoint. The main procedure does not accept arguments or return a value. We'll discuss how to do both in **Chapter X**. There can only be one entrypoint in a package. However, packages that have `main` defined may still be imported and used, thier main is not _your_ main. The following annotated program shows a basic hello program, but again using relative pathing to reinforce the idea of directories and symlinks. The `fmt` import will always be `import "core:fmt"` in practice.
 
 ![main](./images/020_main.png "main")
