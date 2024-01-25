@@ -4,7 +4,9 @@ For your awareness, this book is intended to be a commercial project. My primary
 
 If someone were to provide extensive editing I will look at providing the first X copies' profits as compensation and appreciation for the help.
 
-If somenone wants to put in substantial authoring efforts, i am happy to take on a coauthor. The caveat here is you need to either do extensive research to make sure we cover every base and/or write something like 40-50% of the book.
+If someone wants to put in substantial authoring efforts, i am happy to take on a coauthor. The caveat here is you need to either do extensive research to make sure we cover every base and/or write something like 40-50% of the book.
+
+Ref for page estimating:
 
 ~5 char per word -> 500 word/page
 ~1500 char/page
@@ -27,57 +29,61 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
         -   [ ] Linux
     -   [ ] Basic Compiler Commands
     -   [ ] Hellope
+    -   start with main (what order hit concepts)
     -   [ ] Basic Syntax Overview
         -   [ ] Left To Right
     -   [ ] Style
 -   [~] Program Structure
-
-    -   [x] Attr, Tag, Directive Primer
     -   [x] Package Declaration
     -   [x] Import Statements
         -   [ ] Collections (Use & Making of)
-    -   [x] Declarations Syntax
-    -   [x] Assignments **TODO ADD \_ (discard)**
-    -   [~] Procedures
-        -   [ ] Move to own section, just do tl;dr here
-        -   [ ] Overloads
-        -   [ ] Attrs/Directives
-    -   [x] Entry Point
-    -   [ ] Scopes
+    -   [x] Declarations & Assignments
+    -   [x] Scopes
+    -   [x] Attr, Tag, Directive Primer
     -   [x] Naming Collisions (MOVE THIS)
-
--   [ ] Basic Types, Arrays, Matrices
+-   [ ] Basic Types
 
     -   [ ] Portability Discussion
     -   [ ] Numeric Types
-        -   [ ] Complex & Quaternion (SPECIAL SYNTAX)
+
         -   [ ] Endian Types
-    -   [ ] Runes & Strings
-        -   [ ] UTF-8 Primer
-    -   [ ] Implicit Types
+        -   [ ] Runes + UTF-8 Primer
         -   [ ] Numeric Literals (10,bin,oct,hex)
-        -   [ ] String Literals
+        -   [ ] String Literals **<- i am homeless**
+        -   [ ] RTTI Types (Any, typeid) -> later in book
+
+    -   [ ] Implicit Type
+
         -   [ ] Implicit Conversion
+        -   [ ] Type Conversion
+
+    -   Mathsy
+
+        -   [ ] Complex & Quaternion (SPECIAL SYNTAX)
+        -   [ ] Matrices - talk col major storage, row major entry
+        -   [ ] Vectors
+
     -   [ ] Static Arrays
-    -   [ ] Matrices
-    -   [ ] rawptr
+
+    -   [ ] Pointers
+
+        -   [ ] rawptr
         -   [ ] implict convert to rawptr
-    -   [ ] RTTI Types (Any, typeid)
-    -   [ ] Type Conversion
+        -   [ ] Virtual Memory (? maybe in memory chapter)
+        -   [ ] Basics
+        -   [ ] Multipointers
+        -   [ ] C-Style Pointer Arithmetic
+        -   [ ] ?
+
+    -   [ ] Slices
+
+        -   [ ] strings
+        -   [ ] dynamic & map (see you later, allocator )
+
     -   [ ] Zero Values
 
 -   [ ] Structured Types
 
-    -   [ ] Structs
-        -   [ ] Memory Layout/Packing
-        -   [ ] Access Patterns
-        -   [ ] Nesting, using for composition
-        -   [ ] Procs
-        -   [ ] offset_of and examples
-        -   [ ] Attrs
-            -   [ ] String-Attr
-        -   [ ] Directives
-            -   [ ] #raw_union
     -   [ ] Enums
 
         -   [ ] Backing Types
@@ -88,24 +94,31 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
         -   [ ] attrs ?
         -   [ ] Directives
 
+    -   [ ] bit_set
+    -   [ ] bit_fields
+
+    -   [ ] Structs
+
+        -   [ ] Memory Layout/Packing
+        -   [ ] Access Patterns
+        -   [ ] Nesting, using for composition
+        -   [ ] Procs
+        -   [ ] offset_of and examples
+        -   [ ] Attrs
+            -   [ ] String-Attr
+        -   [ ] Directives
+            -   [ ] #raw_union
+        -   [ ] #SOA Types
+            -   [ ] Explanation as a veneer
+            -   [ ] Examples + Perf Implications
+            -   [ ] Zip/Unzip
+
     -   [ ] Unions
 
         -   [ ] Layout
         -   [ ] Tags (dont cheat them)
         -   [ ] Accessing (esp ptr)
         -   [ ] Comparison to Rust Enum
-
--   [ ] Pointers
-
-    -   [ ] Virtual Memory (? maybe in memory chapter)
-    -   [ ] Basics
-    -   [ ] Multipointers
-    -   [ ] C-Style Pointer Arithmetic
-    -   [ ] ?
-
--   [ ] Slices, dynamic & map
-
-    -   [ ] ?
 
 -   [ ] Operators (arithmatic, bitwise, ternary)
     -   [x] Arithmetic, Bitwise
@@ -125,6 +138,9 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
     -   [ ] Outputs Signature
     -   [ ] First Class (can pass as args, can use nameless)
     -   [ ] Body
+    -   [ ] Overloads
+    -   [ ] Attrs/Directives
+            **FWD REF $T**
 
 ## Part 2: Memory
 
@@ -165,15 +181,15 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
 
 ## Part 3: Core/Vendor
 
+-   [ ] Builtins, Intrinsics, Runtime Packages
+    -   [ ] Builtins
+    -   [ ] Intrinsics
+    -   [ ] Runtime
 -   [ ] Printing & IO
     -   [ ] stdin/out/err
     -   [ ] formatters
     -   [ ] pros/cons of RTTI based string printing
     -   [ ] use-cases (aprintf, tprintf, sb etc)
--   [ ] Builtins, Intrinsics, Runtime Packages
-    -   [ ] Builtins
-    -   [ ] Intrinsics
-    -   [ ] Runtime
 -   [ ] Core Libraries
 
     -   [ ] Overviews of Each
@@ -182,65 +198,90 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
         -   [ ] log
         -   [ ] json
         -   [ ] prof
+        -   [ ] slice (sorting)
 
 -   [ ] Vendor Libraries
+    -   [ ] more general overview, diffs and thing to pay attention in the interfaces (cool things of this lib in Odin)
+    -   [ ] Graphics Demos
+        -   [ ] Raylib
+        -   [ ] SDL
+        -   [ ] GLFW
+        -   [ ] Raw DirectX
+        -   [ ] Raw OpenGL
+        -   [ ] Raw Vulkan
 
 ## Part 4: Advanced Topics
 
--   [ ] Build Scripts
+-   [ ] Compilation
+
+    -   [ ] Compiler Flags
+        -   [ ] ? todo
+    -   [ ] when, ODIN_XX, #config #load
     -   [ ] bat/sh
-    -   [ ] #config
-    -   [ ] Release Mode
--   [ ] Correctness
-    -   [ ] Asserts, Panics
-    -   [ ] Bounds-Checks
-    -   [ ] ?
--   [ ] Error Handling
-    -   [ ] Bools, Unions, Enums
-    -   [ ] Aggregate with Union
-    -   [ ] or_return, or_else
-    -   [ ] panic, assert, handlers
+    -   [ ] Compiler errors (?)
+
 -   [ ] Polymorphism & Constraints
+
     -   [ ] Simple Paropoly
     -   [ ] Slice Paropoly
     -   [ ] Constraints & Limits
     -   [ ] Coloring of types (eg struct($T))
+
+-   [ ] Correctness
+    -   [ ] Bounds-Checks
+    -   [ ] ?
+    -   [ ] Asserts, Panics
+        -   [ ] handlers
+-   [ ] Error Handling
+    -   [ ] Bools, Unions, Enums
+    -   [ ] Aggregate with Union
+    -   [ ] or_return, or_else
 -   [ ] Testing
+
     -   [ ] Setting up a Test
     -   [ ] ?
--   [ ] Cross-Platform Support
 
+-   [ ] Cross-Platform Support
     -   [ ] OS-Specific Builds
     -   [ ] Git Actions to test other OS (?)
-    -   [ ] Git Actions to test other OS (?)
-
--   [ ] Threading
-    -   [ ] Intro to Threading +ahmdahls law
-    -   [ ] Creating & Managing Threads
-    -   [ ] Thread_Local & Arenas (?)
-    -   [ ] Issues / Errors (Races etc)
+-   [ ] wasm
+    -   [ ] Example Project
+    -   [ ] JS-WASM Interop
+    -   [ ] Memory Limitations
 -   [ ] SIMD
     -   [ ] Overview of Vectorization
     -   [ ] Simd usage in Odin (esp in-out)
     -   [ ] Using masks in liue of branching
     -   [ ] When auto-vectorization works well, when it does not
     -   [ ] Sample Use Cases (csv parser?)
+-   [ ] Threading
+
+    -   [ ] Intro to Threading +ahmdahls law
+    -   [ ] Creating & Managing Threads
+    -   [ ] Thread_Local & Arenas (?)
+    -   [ ] Issues / Errors (Races etc)
+
+-   [ ] Nonblocking IO (not Odin per-se, reduce down to useful set)
+
+    -   [ ] Event-Driven
+    -   [ ] State-Machine
+    -   [ ] Callback/Promise
+    -   [ ] CSP Model
+        -   [ ] Goroutines
+    -   [ ] Actor Model
+        -   [ ]
+
 -   [ ] Reflection & RTTI
     -   [ ] Concepts & Limitations
     -   [ ] Examples
     -   [ ] Perf impact (?)
 -   [ ] Metaprogramming
+
     -   [ ] core:odin/ast/parser/tokenizer
     -   [ ] Demo: Sig-Scraper
--   [ ] #SOA Types
-    -   [ ] Explanation
-    -   [ ] Examples + Perf Implications
-    -   [ ] Zip/Unzip
--   [ ] wasm
-    -   [ ] Example Project
-    -   [ ] JS-WASM Interop
-    -   [ ] Memory Limitations
--   [ ] "big demo" Tetris, snake, checker, sokoban, pong?
+
+-   [x] Entry Point & Runtime
+    -   [ ] ?
 
 ## Part 5: FFI & Building
 
@@ -265,25 +306,18 @@ If somenone wants to put in substantial authoring efforts, i am happy to take on
     -   [ ] How to use COM API
     -   [ ] Objective-C Nonsense (ask bill)
     -   [ ] ?
--   [ ] Compiler Flags
-    -   [ ] ? todo
 
 ## Part 6: Misc
 
 -   [ ] Related Projects
 -   [ ] Why not Feature X?
--   [ ] Larger Samples
 -   [ ] Freestanding (?)
     -   [ ] Kernel Demo (?)
     -   [ ] RPI Blinky (?)
--   [ ] Graphics Demos
-    -   [ ] Raylib
-    -   [ ] SDL
-    -   [ ] GLFW
-    -   [ ] Raw DirectX
-    -   [ ] Raw OpenGL
-    -   [ ] Raw Vulkan
+-   [ ] Larger Samples
 
 ## Part 7: Reference Manual
 
 -   [ ] lang-spec
+
+-   [ ] "big demos" Tetris, snake, checker, sokoban, pong?

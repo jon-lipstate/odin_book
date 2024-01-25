@@ -1,11 +1,25 @@
 package tmp
 import "core:fmt"
 
+import "core:container/queue"
 
 main :: proc() {
-	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-	b:=a[1:3:6]
+	q: queue.Queue(int)
+	queue.init(&q)
+	fmt.println(q)
 }
 
 
-bar :: enum {}
+// an_array :: [3]int{1, 2, 3}
+
+// invalid_use_examples :: proc(v: int) {
+// 	// Error: 'v + 1' is not a compile-time known constant
+// 	constant :: v + 1
+// 	// Resolution: Use Assignment Operator
+// 	not_a_constant := v + 1
+
+// 	// Error: Cannot index a constant 'an_array'
+// 	arr_val := an_array[v]
+// 	// Evaluable at Compile-Time, this is OK to do:
+// 	ok_arr_val := an_array[2]
+// }

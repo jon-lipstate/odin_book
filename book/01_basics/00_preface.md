@@ -14,7 +14,7 @@ From there the language has steadily improved and grown a close knit community f
 
 #### Language Influence
 
-TODO: not sure if i keep this? maybe more research than materials...
+**TODO: not sure if i keep this? maybe more useful as research than materials...**
 
 The overarching design philosophy of Odin is significantly inspired by Niklaus Wirth and Rob Pike. Wirth’s approach to creating languages that are Simple, Minimal, Clear, Efficient & Modular. Wirth believed that languages should only include the features neccesary to achieve thier goals, and should be simple to learn and _know_. The simplicity of the language makes it clearer to readers what is occuring, making for easier maintainace and learning. Wirth was an advocate of strong type systems to minimize the proliferation of statically analyzable defects; Types improve clarity. Wirth found it distasteful to waste resources because they were cheap, he strived to make efficient use of what was available.
 Wirth’s philosophy of “less is more” is evident in his approach to modularity. He believed in providing just enough language features to support robust and efficient software development without overcomplicating the language.
@@ -22,6 +22,8 @@ Wirth’s philosophy of “less is more” is evident in his approach to modular
 Rob Pike, one of the key figures behind Go, echos the sentiments of Wirth in his designs, he aims for a small tangible footprint that provides the features a language needs and no more. He brought forward first class concurrency, made quality tooling a priority and designed for collaborative development in the language via clear unambiguous syntax, and a concise modules system.
 
 #### Initial Design Goals
+
+**these were bills 2016 goals, present goals are not exactly the same**
 
 The initial design goals of Odin were founded on a set of principles that aimed to address real-world programming challenges with a blend of modern capabilities and pragmatic design.
 
@@ -53,6 +55,8 @@ In amalgamating real-world usage patterns with a judicious selection of features
 
 ### Book Organization
 
+The difficulty in writing a book on a programming language is that languages operate whollistically, attempting to tease apart a linear introduction of the language without some level of previously assumed knowledge on languages in general leans into teaching programming itself, which is outside the scope of this book. As such, the book tries to organize topics fairly linearly, but does not concern itself with guaranteeing a topic has been formally introduced prior to usage or demos.
+
 Part 1: The Basics
 In the initial segment of this book, the reader is methodically introduced to the Odin programming language in as linear a fashion as practical. It commences with an overview of installation procedures and basic syntax, progressing through the structural elements of Odin programs such as package declarations and scope management. A detailed examination of basic types, their conversion, and initialization principles lays the groundwork for subsequent chapters. The exploration of structured types, pointers, and their associated paradigms reinforces the reader's grasp on Odin's approach to data organization and manipulation.
 
@@ -63,7 +67,7 @@ Part 3: Core and Vendor Libraries
 In Part 3 the core and Vendor collections are reviewed. Most packages have only cursory discussion, simply to know when you may wish to investigate them further. Selected packages have much more in depth review with several examples to ensure these commonly tread packages are concretely understood.
 
 Part 4: Advanced Topics
-Advanced Topics introduce to more specific or specialized use cases. This section covers setting up build scripts, error handling techniques in Odin, polymorphism, cross-platform support, concurrency, vectorization, reflection, metaprogramming and specialty types like `#soa`. **ADD OPTIMIZAITON STRATS HERE??**
+Advanced Topics introduce to more specific or specialized use cases. This section covers setting up build scripts, error handling techniques in Odin, polymorphism, cross-platform support, concurrency, vectorization, reflection, metaprogramming and **...**
 
 Part 5: FFI and Building
 Part 5 focuses on the Foreign Function Interface (FFI) system in Odin and building/linking. This section elucidates the process of integrating Odin with other languages and systems, demonstrating the creation and usage of bindings, managing dynamic libraries, and delving into interoperability concerns. It also goes over compiler flags in depth.
@@ -72,7 +76,7 @@ Part 6: Miscellaneous
 A wide range of diverse and supplementary topics are explored. This includes an overview of related projects within the Odin community, discussions on feature requests and decisions, larger code samples, and a look at freestanding and embedded applications. The section also delves into graphics programming, showcasing Odin's capabilities in this domain.
 
 Part 7: Reference Manual
-**this a thing?**
+**hopefully is avail by then..?**
 
 ### Target Audience
 

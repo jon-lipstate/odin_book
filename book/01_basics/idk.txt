@@ -1,0 +1,5 @@
+Structure
+    decl/Assignments
+    expr
+    scopes
+    package/import
