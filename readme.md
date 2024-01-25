@@ -34,12 +34,12 @@ Ref for page estimating:
         -   [ ] Left To Right
     -   [ ] Style
 -   [~] Program Structure
+    -   [x] Attr, Tag, Directive Primer
     -   [x] Package Declaration
     -   [x] Import Statements
         -   [ ] Collections (Use & Making of)
     -   [x] Declarations & Assignments
     -   [x] Scopes
-    -   [x] Attr, Tag, Directive Primer
     -   [x] Naming Collisions (MOVE THIS)
 -   [ ] Basic Types
 

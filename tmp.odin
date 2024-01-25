@@ -1,7 +1,11 @@
+//+private, +build windows, !linux
 package tmp
 import "core:fmt"
 
 import "core:container/queue"
+
+@(require, export = false, thread_local)
+foo: int
 
 main :: proc() {
 	q: queue.Queue(int)

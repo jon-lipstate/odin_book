@@ -90,3 +90,100 @@ multi_return_proc :: proc() -> (a:int, ok:bool) {
 ```
 
 Named return values are zero-initialized, and may not be re-declared. You may use them as declared variables through the procedure. Return statements with named variables may either have a naked `return` with no other values, or it may be positional arguments returned. If using values in the return statement, all of them must be present, and ordered correctly per the signature.
+
+#### Procedures
+
+````odin
+read_entire_file :: proc(path:string, allocator:=context.allocator) -> (data:[]byte, success:bool)
+aprintf::proc(fmt:string, args: ..any, allocator:=context.allocator) -> strin
+### Entry Point
+
+```odin
+main :: proc() {
+	// application entry-point
+}
+````
+
+**FIXME:**
+main has no prototype to keep it simple, behind the scenes the application startup code will insert a platform-correct signature for you. access to the IO is core:os.
+
+### Attbributes
+
+@(deferred_x=target_proc)
+in, out, in_out, none
+
+@(deprecated)
+
+@(require_results)
+
+@(warning)
+
+@(disabled)
+
+@(init)
+
+@(cold)
+
+@(optimization_mode)
+
+### Directives
+
+`#no_alias`: Provides a hint to the compiler about pointer aliasing. The compiler is told that this pointer does not alias any other pointer in the same scope. This allows the compiler to be less conservative in its assumptions and results in more aggressive optimization. Similar to the `__restrict` keyword in C.
+
+```odin
+foo::proc(#no_alias i:i8)
+```
+
+`#any_int`: Relaxes integer type rules on arguments. If the values overflow, they will wrap by default.
+
+```odin
+foo::proc(#any_int i:i8)
+// usage:
+bar:i64 = 0xFF
+foo(bar)
+```
+
+`#caller_location`: Provides a struct containing information about the callsite that executed a procedure using this directive. The struct that is emitted is `Source_Code_Location`.
+
+```odin
+parse_error::proc(msg:string, loc:=#caller_location)
+// Found in core:runtime
+Source_Code_Location :: struct {
+	file_path:    string,
+	line, column: i32,
+	procedure:    string,
+}
+```
+
+`#c_varag`: Used to transform an Odin style vararg into a C-style vararg.
+
+```odin
+foo::proc(#c_vararg args:..any)
+```
+
+`#by_ptr`: Allows Odin code to pass by value in appearance, but the underlying call is assured to be passed by pointers. The common use case is for FFI interfacing with C's `const T*`. HALP HALP: NEED MORE INFO.
+
+```odin
+foo::proc(#by_ptr i:int)
+```
+
+`#optional_ok`: Allows the far right return value, when a bool, to be omitted.
+
+```odin
+foo ::  proc()->(a:int,ok:bool) #optional_ok {...}
+// calling:
+a, ok := foo() // Typically requires both args be captured
+a := foo() // Because optional, last bool can be omitted
+```
+
+`#type`: Serves exclusively for aiding code readability. Prevents adding a procedure body.
+
+```odin
+foo :: #type proc()
+```
+
+`#no_bounds_check` & `#bounds_check`: Opts in or out of bounds-checking at the procedure level. Also applies to scopes.
+
+```odin
+foo :: proc() #no_bounds_check {...}
+```
