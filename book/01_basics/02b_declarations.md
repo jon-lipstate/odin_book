@@ -1,10 +1,10 @@
-### Declaration & Assignment
+### Declaration and Assignment
 
 Fundamental to programming is the ability to set and manipulate variables. Odin's declaration and assignment syntax places emphasis on the variable names rather than the variable _kind_ (`var foo` / `const foo`) from some languages, or the _type_ as seen in C-like languages (`int foo;`).
 
 #### Declarations
 
-A variable declaration sets an _Identifier_ as some specific _Type_, and makes it available for the programmer's use for the remainder of the _Scope_ that it was declared in.
+A variable declaration sets an _Identifier_ to have some specific _Type_, and makes it available for the programmer's use for the remainder of the _Scope_ that it was declared in.
 
 ![Declaration Syntax](./images/02_00_declaration.png "Declaration Syntax")
 
