@@ -10,13 +10,13 @@ A variable declaration sets an _Identifier_ to have some specific _Type_, and ma
 
 In a declaration, the first item listed is the _Identifier_, which may start with an underscore `_`, or any lower/uppercase ASCII letter (`a-z` or `A-Z`). UTF-8 is also permitted from the _Letter_ Categories: Upper, Lower, Titlecase, Modifier, Other. Subsequent characters in an Identifier may also include digits (`0-9`).
 
-Note that the identifier consisting _only_ of a single underscore (`_`) is the _Discard Identifier_, and has special sematics, covered in _Chapter X: Procedures_.
+Note that the identifier consisting _only_ of a single underscore (`_`) is the _Discard Identifier_, and has special sematics. When used, this identifier acknowledges a value's position, but does not bind it to a variable. This is particularly useful when multiple return values from procedures are used, examples of its use are provided in **ChX: Procedures**.
 
 The colon (`:`) following the Identifier is the _Declaration Operator_; it signifies that the preceding Identifier is to be declared as a _Symbol_ in the current _Scope_.
 
 When a Declaration is not followed by subsequent operators, it must include a _Type_. The type is either a primative, structured or procedure-type. Types are covered in detail in **Chapters 3, 4, and 7**.
 
-Note: When variables are declared, even if not explicitly assigned, they are initialized to the appropriate Zero-Value, see **Ch X,Sect Y**.
+**Note:** When variables are declared, even if not explicitly assigned, they are initialized to the appropriate Zero-Value, see **Ch X,Sect Y**.
 
 Odin permits multiple declaration to be comma seperated, as long as all of the identifiers share the same declared type. `a, b: int` is the same as `a:int` and `b:int`.
 
