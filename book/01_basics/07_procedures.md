@@ -1,7 +1,5 @@
 `using` for procedure parameters was implemented for refactoring purposes, it is now considered a design mistake, and should not be used.
 
-g
-
 ````
 
 A procedure is declared with the keyword `proc`. It is followed by the input args signature, the return signature and then the body. The parens are always required, return signatures only present if there are return values, and a body may be omitted if decaring a type versus a concrete implementation.
@@ -93,16 +91,13 @@ Named return values are zero-initialized, and may not be re-declared. You may us
 
 #### Procedures
 
-````odin
-read_entire_file :: proc(path:string, allocator:=context.allocator) -> (data:[]byte, success:bool)
-aprintf::proc(fmt:string, args: ..any, allocator:=context.allocator) -> strin
 ### Entry Point
 
 ```odin
 main :: proc() {
 	// application entry-point
 }
-````
+```
 
 **FIXME:**
 main has no prototype to keep it simple, behind the scenes the application startup code will insert a platform-correct signature for you. access to the IO is core:os.
@@ -114,9 +109,9 @@ in, out, in_out, none
 
 @(deprecated)
 
-@(require_results)
-
 @(warning)
+
+@(require_results)
 
 @(disabled)
 

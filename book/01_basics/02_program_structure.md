@@ -65,10 +65,10 @@ foo :: shared.foo
 
 #### Package Requirements
 
--   Must be the first declaration of the file (e.g. not a comment or blank line)
--   A package may be named any valid Identifier.
--   All `.odin` files within a directory must share the same package name.
--   All imports must be acyclic
+- Must be the first declaration of the file (e.g. not a comment or blank line)
+- A package may be named any valid Identifier.
+- All `.odin` files within a directory must share the same package name.
+- All imports must be acyclic
 
 #### Build Tags:
 
@@ -76,6 +76,7 @@ The first line of the file can contain build directives or a file-wide attribute
 
 `//+private`: Make all data in the file private to the package
 `//+build linux, !windows, darwin`: Restrict compilation of the current file to the Targets listed. An exclaimation (`!`) can be used to logically invert the claim.
+`//+build ignore`: prevents this file from bieng compiled
 
 ### Import Statements
 
@@ -92,7 +93,7 @@ Import statements are used to bring packages into _scope_ for the _current_ file
 
 #### Collections
 
-The `core` and `vendor` collections are located adjacent to the compiler in a normal installation. It would be very inconvienent to attempt to relative-path into the correct `core` package from any arbitrary folder/package on your machine. As such, Odin provides the concept of Collections. A collection most fundamentally may be thought of as a symbolic link (symlink) to a directory. Collection syntax is a collection-name followed by a colon (`:`), the `core:` in the linalg import is accesing the `core` collection. From this point, you're in a directory, and standard pathing applies as if it were a relative path.
+The `base`, `core` and `vendor` collections are located adjacent to the compiler''s executable in a normal installation. It would be very inconvienent to attempt to relative-path into the correct `core` package from any arbitrary folder/package on your machine. As such, Odin provides the concept of Collections. A collection most fundamentally may be thought of as a symbolic link (symlink) to a directory. Collection syntax is a collection-name followed by a colon (`:`), the `core:` in the linalg import is accesing the `core` collection. From this point, you're in a directory, and standard pathing applies as if it were a relative path.
 
 User defined collections are produced by a compiler flag `-collection:<name>=<filepath>`. All folders within the named folder become accessible in the same fashion as the `core`.
 
