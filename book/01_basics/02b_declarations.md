@@ -26,6 +26,7 @@ Odin permits multiple declaration to be comma seperated, as long as all of the i
 
 For variables that have been declared, they may also be assigned to a concrete value. The equals sign (`=`) is used for assignment. When a value has been previously declared and/or assigned, it may be re-assigned.
 
+**--- maybe belongs in the advanced section**
 When _not_ in the package-scope, a variable may be explicitly not initialized by using the `---` operator. This specifies to the complier _Do not zero-init this memory_. Typically this is done for performance; the values will be written later, therefore zero-initialization is a wasted operation.
 
 Example usage: `foo: int = ---`
@@ -51,6 +52,8 @@ The second example shows an integer and a boolean working in the same way, howev
 ![Constant Declaration](./images/02_02_constant_decl.png "Constant Declaration")
 
 When a second colon operator is used after a declaration, that type is declared to be a compile-time constant. Note that these are _not_ constant global variables as you might first believe, but more akin to `#define` constants in C. If they are declared, but never used, they are pruned away. Where they are used, they are inserted at the usage site as a literal value.
+
+**not same as static const variable**
 
 They may be evaluated at compile-time, but the calculations must be knowable at compile-time. For example, you may want a constant for 4-megabytes `FOUR_MEGABYTES :: 4 * (1 << 20)`. This will, at any site using it, insert the literal `4,194,304`.
 
@@ -82,6 +85,8 @@ Redeclaration of a variable is defined as Shadowing. Odin does not permit shadow
 ### Attributes
 
 The following attributes apply to declarations in general, which includes variables, **?** and procedures.
+
+**NOTE: all values public by default in a package**
 
 `@private`: prevents an Identifier from being exported outside of the current package. This is a shortend version of `@(private="package")`.
 

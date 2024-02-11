@@ -69,16 +69,18 @@ Ref for page estimating:
 
         -   [ ] rawptr
         -   [ ] implict convert to rawptr
-        -   [ ] Virtual Memory (? maybe in memory chapter)
         -   [ ] Basics
-        -   [ ] Multipointers
+        -   [ ] Multipointers (slice w/o no-bounds-check)
         -   [ ] C-Style Pointer Arithmetic
-        -   [ ] ?
+        -   [ ] Fat-Pointers
 
     -   [ ] Slices
-
-        -   [ ] strings
-        -   [ ] dynamic & map (see you later, allocator )
+    -   [ ] strings
+        -   Distinction between what string is (value,backing buffer, builder are all distinct; cant concat because alloc & confuses str+bldr)
+        -   str val in practice always immutable
+        -   builder is container for backing data
+    -   [ ] dynamic
+    -   [ ] map (see you later, allocator )
 
     -   [ ] Zero Values
 
@@ -196,37 +198,32 @@ Ref for page estimating:
     -   [ ] Detailed examples from:
         -   [ ] strings
         -   [ ] log
-        -   [ ] json
+        -   [ ] json/csv
         -   [ ] prof
         -   [ ] slice (sorting)
+        -   [ ] net
 
 -   [ ] Vendor Libraries
     -   [ ] more general overview, diffs and thing to pay attention in the interfaces (cool things of this lib in Odin)
     -   [ ] Graphics Demos
-        -   [ ] Raylib
-        -   [ ] SDL
-        -   [ ] GLFW
-        -   [ ] Raw DirectX
-        -   [ ] Raw OpenGL
-        -   [ ] Raw Vulkan
+        -   [ ] Raylib (out of date within a year)
+        -   [ ] SDL2
+        -   [ ] GLFW (probaly not.. too much openGL?)
+    -   [ ] WASM, zlib, lua, stb
 
 ## Part 4: Advanced Topics
 
 -   [ ] Compilation
-
-    -   [ ] Compiler Flags
-        -   [ ] ? todo
+-   [ ] Compiler Flags
+    -   [ ] ? todo
     -   [ ] when, ODIN_XX, #config #load
     -   [ ] bat/sh
     -   [ ] Compiler errors (?)
-
 -   [ ] Polymorphism & Constraints
-
     -   [ ] Simple Paropoly
     -   [ ] Slice Paropoly
     -   [ ] Constraints & Limits
     -   [ ] Coloring of types (eg struct($T))
-
 -   [ ] Correctness
     -   [ ] Bounds-Checks
     -   [ ] ?
@@ -237,10 +234,8 @@ Ref for page estimating:
     -   [ ] Aggregate with Union
     -   [ ] or_return, or_else
 -   [ ] Testing
-
     -   [ ] Setting up a Test
     -   [ ] ?
-
 -   [ ] Cross-Platform Support
     -   [ ] OS-Specific Builds
     -   [ ] Git Actions to test other OS (?)
@@ -255,14 +250,11 @@ Ref for page estimating:
     -   [ ] When auto-vectorization works well, when it does not
     -   [ ] Sample Use Cases (csv parser?)
 -   [ ] Threading
-
     -   [ ] Intro to Threading +ahmdahls law
     -   [ ] Creating & Managing Threads
     -   [ ] Thread_Local & Arenas (?)
     -   [ ] Issues / Errors (Races etc)
-
 -   [ ] Nonblocking IO (not Odin per-se, reduce down to useful set)
-
     -   [ ] Event-Driven
     -   [ ] State-Machine
     -   [ ] Callback/Promise
@@ -270,16 +262,13 @@ Ref for page estimating:
         -   [ ] Goroutines
     -   [ ] Actor Model
         -   [ ]
-
 -   [ ] Reflection & RTTI
     -   [ ] Concepts & Limitations
     -   [ ] Examples
     -   [ ] Perf impact (?)
 -   [ ] Metaprogramming
-
     -   [ ] core:odin/ast/parser/tokenizer
     -   [ ] Demo: Sig-Scraper
-
 -   [x] Entry Point & Runtime
     -   [ ] ?
 
@@ -321,3 +310,5 @@ Ref for page estimating:
 -   [ ] lang-spec
 
 -   [ ] "big demos" Tetris, snake, checker, sokoban, pong?
+
+-   ODIN for C-PROGRAMMERS

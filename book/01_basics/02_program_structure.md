@@ -2,7 +2,7 @@
 
 In this chapter we will look at the structure of a package, how declarations and assignments work, and the rules of scopes. by the end of the chapter We'll have a solid grasp of the structure a program. In the subsequent chapters we'll flesh out the types and control flow, making that program capable of doing useful work.
 
-### Attributes, Directives, Tags and Build-Directives
+### Attributes, Directives, Tags and Build-Directives **MOVE TO FIRST USAGE OF ATTRS**
 
 I would prefer to wait until later to introduce modifiers, but it seems best to immediately prime you to them so that they can be introduced throughout the book as-encountered rather than at the end of the book where they have little context.
 
@@ -65,10 +65,10 @@ foo :: shared.foo
 
 #### Package Requirements
 
-- Must be the first declaration of the file (e.g. not a comment or blank line)
-- A package may be named any valid Identifier.
-- All `.odin` files within a directory must share the same package name.
-- All imports must be acyclic
+-   Must be the first declaration of the file (e.g. not a comment or blank line)
+-   A package may be named any valid Identifier.
+-   All `.odin` files within a directory must share the same package name.
+-   All imports must be acyclic
 
 #### Build Tags:
 
@@ -82,10 +82,12 @@ The first line of the file can contain build directives or a file-wide attribute
 
 ```
 import "./shared"
-import "../../Odin/core/fmt"
+import "../../Odin/core/fmt" // <- Bill points out that people will copy paste this and then complain
 import la "core:math/linalg"
 import "core:math/bits"
 ```
+
+**collection solves from c: import <> path which is magic global LUT, or "" (relative); what about collisions etc; odin explicit path looking at; prevents collisions**
 
 Import statements are used to bring packages into _scope_ for the _current_ file. A valid Identifier\* may precede the _relative_ path of the package as an alias. In the example above `linalg` is aliased to be `la`. Note that because import statements use relative paths, the default name of an imported package is that of the _final_ folder containing it, _not_ the package's name or the path. In importing the `bits` package above, the default alias is `bits` and _not_ `math/bits` which is not valid syntax. It is convention to keep the package name and folder name the same, but is not required.
 

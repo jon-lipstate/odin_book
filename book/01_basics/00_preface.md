@@ -14,8 +14,6 @@ From there the language has steadily improved and grown a close knit community f
 
 #### Language Influence
 
-**TODO: not sure if i keep this? maybe more useful as research than materials...**
-
 The overarching design philosophy of Odin is significantly inspired by Niklaus Wirth and Rob Pike. Wirth’s approach to creating languages that are Simple, Minimal, Clear, Efficient & Modular. Wirth believed that languages should only include the features neccesary to achieve thier goals, and should be simple to learn and _know_. The simplicity of the language makes it clearer to readers what is occuring, making for easier maintainace and learning. Wirth was an advocate of strong type systems to minimize the proliferation of statically analyzable defects; Types improve clarity. Wirth found it distasteful to waste resources because they were cheap, he strived to make efficient use of what was available.
 Wirth’s philosophy of “less is more” is evident in his approach to modularity. He believed in providing just enough language features to support robust and efficient software development without overcomplicating the language.
 
@@ -40,6 +38,8 @@ It embraces contemporary advancements in computing, such as SIMD (Single Instruc
 Sanity in the development process is another design goal. Odin emphasizes fast compilation times and minimizes the need for extensive tooling. This includes a deliberate decision to avoid complex package managers, thereby simplifying the development workflow and making code refactoring more manageable.
 
 Lastly, metaprogramming capabilities in Odin allow for writing more expressive and flexible code. This feature enables developers to write code that can generate or manipulate other code, providing a powerful tool for creating highly adaptable and dynamic software solutions. This goal has faded to a backburner position over time as the language has matured. Rather than apply metaprogramming, many domains that would have been metaprogrammed simply became language features.
+
+**original bill: be like jai; but that requires vm and two targets. then more like zig comptime, but then realized didnt really need it**
 
 ### Design Philosophy
 

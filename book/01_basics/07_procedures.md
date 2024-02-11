@@ -1,6 +1,15 @@
-`using` for procedure parameters was implemented for refactoring purposes, it is now considered a design mistake, and should not be used.
+`using` for procedure parameters was implemented for refactoring purposes, it is now considered a design mistake, and should not be used. Clarify: using is great for refactoring. not intended for a permanant solution. banned using at global scope because people were abusing and confusing the code, cant figure out where came from. single file packages and using everywhere
 
-````
+initially was goign to do pascal's `with` bound to a scope. jai doing inline inspired using. almost prefer with to current impl
+
+```
+foo::proc(inputs:^Inputs) {
+  using inputs
+}
+foo :: proc(using inputs: ^Inputs) {
+
+}
+```
 
 A procedure is declared with the keyword `proc`. It is followed by the input args signature, the return signature and then the body. The parens are always required, return signatures only present if there are return values, and a body may be omitted if decaring a type versus a concrete implementation.
 
@@ -15,7 +24,7 @@ outer :: proc() {
 		// a = 7 <- will not work: scopes are _not_ passed down like closures
 	}
 }
-````
+```
 
 ##### Inputs Signature
 

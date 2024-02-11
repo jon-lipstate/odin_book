@@ -49,10 +49,10 @@ When an OS launches an application, it follows a series of steps to ready the ex
 1. **Process Initialization**: Assigns a unique process ID (PID) and control block (PCB) and allocates a separate virtual memory space for process isolation.
 2. **Executable Loading**: Loads the executable into memory, parsing it to identify code, data sections, and library dependencies. On Linux, this is an ELF file; on Windows, a PE file.
 3. **Memory Segmentation**:
-   - `.text` segment for executable code is set to read and execute permissions.
-   - `.data` segment for global/static variables is set to read-write permissions.
-   - `.rodata` segment for read-only data is set to read permissions.
-     These segments are allocated memory and populated accordingly.
+    - `.text` segment for executable code is set to read and execute permissions.
+    - `.data` segment for global/static variables is set to read-write permissions.
+    - `.rodata` segment for read-only data is set to read permissions.
+      These segments are allocated memory and populated accordingly.
 4. **Stack Preparation**: Allocates a contiguous memory block for the stack, used for local variables and procedure calls. Each thread receives its own stack, with sizes typically ranging from 1-8 MiB, depending on the OS.
 5. **Heap Region Setup**: The process marks an initial region for the heap, which is later configured and managed by the runtime.
 6. **Address Relocation and Dynamic Linking**: Adjusts symbolic references to correct memory addresses and performs dynamic linking, including loading necessary dynamic libraries.
@@ -60,6 +60,8 @@ When an OS launches an application, it follows a series of steps to ready the ex
 8. **Start Execution**: Control is passed to the application's main entry point (`main`), beginning application execution.
 
 ---
+
+**heap and stack ate towards each other in physical memory**
 
 **PICTURE OF ACTUAL MEMORY SPACE - STACK DATA ETC**
 https://en.wikipedia.org/wiki/Page_table
@@ -97,7 +99,7 @@ Consider a scenario where a procedure recursively calls itself without storing a
 Nearly all modern CPUs are designed around the concept of virtual memory. The physical memory (RAM) is hidden behind a translation table, presenting the virtual address space to the user's code. This has numerous benefits:
 
 1. Overcommitment: More memory can be reserved than the system has RAM capabilities for.
-   - Allows Demand Paging (loading content larger than capacity)
+    - Allows Demand Paging (loading content larger than capacity)
 2. Concurrency/Isolation: Each process is given its own isolated address space, it cannot collide with other processes, and other processes may not maliciously access it's memory. This enables significantly more concurrent processes than if it were not the case.
 3. Efficiency: Enables the OS to pass out memory via pages and segments.
 4. Swap Space: Low-use memory pages can be placed on disk to free up RAM for other processes
@@ -116,9 +118,9 @@ If the TLB does not contain the mapping (a TLB miss), the MMU initiates a page t
 
 When a page fault occurs, the OS intercedes to handle it. Page faults may be caused by the following:
 
-- Demand Paging: Page is valid, but not in memory
-- Access Violation: Attempting to access invalid memory, or valid memory with incorrect permissions
-- Uncommited Memory: Read/Write from memory that is _reserved_ but _uncommitted_
+-   Demand Paging: Page is valid, but not in memory
+-   Access Violation: Attempting to access invalid memory, or valid memory with incorrect permissions
+-   Uncommited Memory: Read/Write from memory that is _reserved_ but _uncommitted_
 
 In the case of Demand Paging, the OS will load the memory into RAM and reattempt the faulted read.
 An access violation will terminate the offending application. Uncommitted memory will commit the memory, and continue execution.
@@ -129,4 +131,6 @@ An access violation will terminate the offending application. Uncommitted memory
 
 ## Common Memory Errors
 
-- Overwriting Data
+-   Overwriting Data
+
+**malloc is basically is a bunch of arenas and a freelist - see how musl implements it**
