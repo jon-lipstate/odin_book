@@ -1,10 +1,6 @@
 # The Odin Programming Language
 
-For your awareness, this book is intended to be a commercial project. My primary goal is to help make Odin more accessible and improve the question quality on discord. I dont expect to have substantial profits from the book, my back of the envelope estimate is ~1500 lifetime sales, a B&W paperback at 300 pages is about $6 to print, a color hardback is $27. I imagine the book should be priced aroun $30, similar to Go's book. Hardbacks probably hold around the same margins, perhaps a bit more as the inventory will sit much longer. I am guessing that itll take 5 years to hit those numbers, and less the cost of printing, revenue will be ~36k, or $7.2k a year. Its likely to be a good bit less than that due to shipping&handling, or amazon's cut, time-value of money sitting on inventory and so forth.
-
-If someone were to provide extensive editing I will look at providing the first X copies' profits as compensation and appreciation for the help.
-
-If someone wants to put in substantial authoring efforts, i am happy to take on a coauthor. The caveat here is you need to either do extensive research to make sure we cover every base and/or write something like 40-50% of the book.
+I started this project early in the year, but work became too time-consuming for me to continue it. 
 
 Ref for page estimating:
 
